@@ -1,6 +1,10 @@
+import java.util.Random;
+import java.util.Scanner;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
@@ -11,5 +15,14 @@ public class Main {
             // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
             System.out.println("i = " + i);
         }
+    }
+
+    public static int numeroAleatorio() {
+        Random random = new Random();
+        return random.nextInt(30) + 1;
+    }
+
+    public static int palpiteDoUsuario(Scanner scanner) {
+        return scanner.nextInt();
     }
 }
