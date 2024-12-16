@@ -25,4 +25,18 @@ public class Main {
     public static int palpiteDoUsuario(Scanner scanner) {
         return scanner.nextInt();
     }
+
+    public static int jogoAdvinha(int numeroAleatorio, int palpite, int pontos) {
+        if (numeroAleatorio == palpite) {
+            pontos += 10;
+            System.out.printf("PARABÉNS, ACERTOU O NÚMERO! VOCÊ TEM: %d PONTOS\n", pontos);
+        } else if (numeroAleatorio + 1 == palpite || numeroAleatorio - 1 == palpite) {
+            pontos += 5;
+            System.out.printf("QUAASE! CHEGOU PERTO! VOCÊ GANHOU 5 PONTOS. VOCÊ TEM: %d PONTOS\n", pontos);
+        } else {
+            System.out.printf("Que pena! Você não acertou o número. Total de pontos: %d\n", pontos);
+        }
+        return pontos;
+    }
+
 }
