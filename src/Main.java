@@ -22,9 +22,16 @@ public class Main {
         scanner.close();
     }
 
-    public static int numeroAleatorio() {
+    public static int numeroAleatorio(int nivelDificuldade) {
         Random random = new Random();
-        return random.nextInt(30) + 1;
+        if (nivelDificuldade == 1) {
+            return random.nextInt(10) + 1;
+        } else if (nivelDificuldade == 2) {
+            return random.nextInt(50) + 1;
+        } else if (nivelDificuldade == 3) {
+            return random.nextInt(100) + 1;
+        }
+        return 0;
     }
 
     public static int palpiteDoUsuario(Scanner scanner) {
