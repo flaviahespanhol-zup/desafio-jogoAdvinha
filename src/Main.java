@@ -39,4 +39,10 @@ public class Main {
         return pontos;
     }
 
+    public static boolean continuarJogo(Scanner scanner) {
+        System.out.println("Quer tentar de novo? (s/n)");
+        String resposta = scanner.next();
+        return resposta.equalsIgnoreCase("s");
+    }
+
 }
