@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -6,20 +7,54 @@ public class Main {
 
     public static void main(String[] args) {
         int pontosUsuario = 0;
+        List<Integer> palpitesCertosUsuario = new ArrayList<>();
+        List<Integer> palpitesErradosUsuario = new ArrayList<>();
+        int escolhaDificuldade = 0;
         boolean desejaContinuar = true;
         Scanner scanner = new Scanner(System.in);
 
         while (desejaContinuar) {
-            int numeroSorteado = numeroAleatorio();
-            System.out.println("Palpite um número (entre 1 e 30): ");
-            int palpite = palpiteDoUsuario(scanner);
+            if (escolhaDificuldade == 0) {
+                System.out.println("""
+                    Escolha uma dificuldade:
+                    Digite 1 para FÁCIL
+                    Digite 2 para MÉDIO
+                    Digite 3 para DIFÍCIL
+                    """);
+                escolhaDificuldade = scanner.nextInt();
 
-            pontosUsuario = jogoAdvinha(numeroSorteado, palpite, pontosUsuario);
+            }
+            if (escolhaDificuldade == 1) {
+                int numeroSorteado = numeroAleatorio(1);
+                System.out.println("Palpite um número (entre 1 e 10): ");
+                int palpite = palpiteDoUsuario(scanner);
+                todosPalpites(numeroSorteado, palpite, palpitesCertosUsuario, palpitesErradosUsuario);
 
-            desejaContinuar = continuarJogo(scanner);
+                pontosUsuario = jogoAdvinha(numeroSorteado, palpite, pontosUsuario);
+                desejaContinuar = continuarJogo(scanner);
+            } else if (escolhaDificuldade == 2) {
+                int numeroSorteado = numeroAleatorio(2);
+                System.out.println("Palpite um número (entre 1 e 50): ");
+                int palpite = palpiteDoUsuario(scanner);
+                todosPalpites(numeroSorteado, palpite, palpitesCertosUsuario, palpitesErradosUsuario);
+
+
+                pontosUsuario = jogoAdvinha(numeroSorteado, palpite, pontosUsuario);
+                desejaContinuar = continuarJogo(scanner);
+            } else if (escolhaDificuldade == 3) {
+                int numeroSorteado = numeroAleatorio(3);
+                System.out.println("Palpite um número (entre 1 e 100): ");
+                int palpite = palpiteDoUsuario(scanner);
+                todosPalpites(numeroSorteado, palpite, palpitesCertosUsuario, palpitesErradosUsuario);
+
+                pontosUsuario = jogoAdvinha(numeroSorteado, palpite, pontosUsuario);
+                desejaContinuar = continuarJogo(scanner);
+            }
+
         }
 
-        System.out.printf("Acabou! Você acumulou %d pontos", pontosUsuario);
+        resultadoUsuario(pontosUsuario, palpitesCertosUsuario, palpitesErradosUsuario);
+
         scanner.close();
     }
 
