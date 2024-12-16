@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -36,6 +37,14 @@ public class Main {
 
     public static int palpiteDoUsuario(Scanner scanner) {
         return scanner.nextInt();
+    }
+
+    public static void todosPalpites(int numeroSorteado, int palpite, List<Integer> palpitesCertos, List<Integer> palpitesErrados) {
+        if (palpite == numeroSorteado) {
+            palpitesCertos.add(palpite);
+        } else {
+            palpitesErrados.add(palpite);
+        }
     }
 
     public static int jogoAdvinha(int numeroAleatorio, int palpite, int pontos) {
