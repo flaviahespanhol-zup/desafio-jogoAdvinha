@@ -30,7 +30,7 @@ public class Main {
                 int palpite = palpiteDoUsuario(scanner);
                 todosPalpites(numeroSorteado, palpite, palpitesCertosUsuario, palpitesErradosUsuario);
 
-                pontosUsuario = jogoAdvinha(numeroSorteado, palpite, pontosUsuario);
+                pontosUsuario = jogoAdivinha(numeroSorteado, palpite, pontosUsuario);
                 desejaContinuar = continuarJogo(scanner);
             } else if (escolhaDificuldade == 2) {
                 int numeroSorteado = numeroAleatorio(2);
@@ -39,7 +39,7 @@ public class Main {
                 todosPalpites(numeroSorteado, palpite, palpitesCertosUsuario, palpitesErradosUsuario);
 
 
-                pontosUsuario = jogoAdvinha(numeroSorteado, palpite, pontosUsuario);
+                pontosUsuario = jogoAdivinha(numeroSorteado, palpite, pontosUsuario);
                 desejaContinuar = continuarJogo(scanner);
             } else if (escolhaDificuldade == 3) {
                 int numeroSorteado = numeroAleatorio(3);
@@ -47,7 +47,7 @@ public class Main {
                 int palpite = palpiteDoUsuario(scanner);
                 todosPalpites(numeroSorteado, palpite, palpitesCertosUsuario, palpitesErradosUsuario);
 
-                pontosUsuario = jogoAdvinha(numeroSorteado, palpite, pontosUsuario);
+                pontosUsuario = jogoAdivinha(numeroSorteado, palpite, pontosUsuario);
                 desejaContinuar = continuarJogo(scanner);
             }
 
@@ -88,7 +88,7 @@ public class Main {
         System.out.println("Seus palpites errados: " + palpitesErrados);
     }
 
-    public static int jogoAdvinha(int numeroAleatorio, int palpite, int pontos) {
+    public static int jogoAdivinha(int numeroAleatorio, int palpite, int pontos) {
         if (numeroAleatorio == palpite) {
             pontos += 10;
             System.out.printf("PARABÉNS, ACERTOU O NÚMERO! VOCÊ TEM: %d PONTOS\n", pontos);
