@@ -47,6 +47,12 @@ public class Main {
         }
     }
 
+    public static void resultadoUsuario(int pontos, List<Integer> palpitesCertos, List<Integer> palpitesErrados) {
+        System.out.printf("Acabou! Você acumulou %d pontos%n", pontos);
+        System.out.println("Seus palpites certos: " + palpitesCertos);
+        System.out.println("Seus palpites errados: " + palpitesErrados);
+    }
+
     public static int jogoAdvinha(int numeroAleatorio, int palpite, int pontos) {
         if (numeroAleatorio == palpite) {
             pontos += 10;
